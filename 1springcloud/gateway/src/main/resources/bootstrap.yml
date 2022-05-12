@@ -1,0 +1,45 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+      config:
+        server-addr: 127.0.0.1:8848
+    gateway:
+      routes:
+        # 路由的ID，没有固定规则但要求唯一，建议配置服务名称
+        - id: gateway-service
+          # 匹配后提供服务的路由地址
+          uri: "http://127.0.0.1:8080/getUserName"
+          # 路由条件（predicates：断言，匹配 HTTP 请求内容）
+          predicates:
+            # 转发地址格式为 uri/getUserName
+            - Path=/getUserName
+        - id: gateway-service2
+          uri: lb://openfeign-server
+          predicates:
+            - Path=/user/**
+        - id: gateway-service3
+          uri: lb://Edge
+          predicates:
+            - Path=/**
+
+#      globalcors:
+#        corsConfigurations:
+#          '[/**]':
+#            allowedOrigins: "https://127.0.0.1"
+#            allowedMethods:
+#              - GET
+#            allowHeaders:
+#              - Content-Type
+#
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
