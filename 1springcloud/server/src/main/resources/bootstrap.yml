@@ -9,10 +9,12 @@ spring:
   profiles:
     active: dev
   cloud:
+    inetutils:
+      ignored-interfaces: 'VMware Virtual Ethernet Adapter for VMnet1,VMware Virtual Ethernet Adapter for VMnet8,Hyper-V Virtual Ethernet Adapter'
     nacos:
       username: nacos
       password: nacos
-      server-addr: 192.168.0.102:8848
+      server-addr: 192.168.0.105:8848
       config:
         server-addr:
         namespace: 5f164af6-f960-4c6a-8dc4-0f6e513dc358
