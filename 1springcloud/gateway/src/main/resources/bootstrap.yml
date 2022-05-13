@@ -37,5 +37,52 @@ spring:
         namespace: 5f164af6-f960-4c6a-8dc4-0f6e513dc358
         group: cloud-nacos
 
+    # 网关配置
+    gateway:
+      routes:
+        # 路由的ID，没有固定规则但要求唯一，建议配置服务名称
+        ## 一个请求地址一个转发
+        #        - id: api-server
+        #          # 匹配后提供服务的路由地址
+        #          uri: "http://127.0.0.1:7000"
+        #          # 路由条件（predicates：断言，匹配 HTTP 请求内容）
+        #          predicates:
+        #            # 转发地址格式为 uri/getUserName
+        #            - Path=/apiServer/user/getUserName
+        ## 断言，路径相匹配的进行路由：/apiServer/*
+        #        - id: api-server2
+        #          # 匹配后提供服务的路由地址
+        #          uri: "http://127.0.0.1:7000"
+        #          # 路由条件（predicates：断言，匹配 HTTP 请求内容）
+        #          predicates:
+        #            # 转发地址格式为 uri/getUserName
+        #            - Path=/apiServer/*
+        ## uri使用lb://
+        - id: api-server3
+          uri: lb://api-server
+          predicates:
+            - Path=/apiServer/*
+        ## 还没想好
+        - id: api-server4
+          uri: lb://api-gateway
+          predicates:
+            - Path=/**
+
+#      globalcors:
+#        corsConfigurations:
+#          '[/**]':
+#            allowedOrigins: "https://127.0.0.1"
+#            allowedMethods:
+#              - GET
+#            allowHeaders:
+#              - Content-Type
+#
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
+
+
 
 

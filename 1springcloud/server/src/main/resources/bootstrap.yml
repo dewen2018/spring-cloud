@@ -1,18 +1,41 @@
 server:
   port: 7000
+  servlet:
+    context-path: /apiServer
 
 spring:
   application:
-    name: openfeign-server
+    name: api-server
+  profiles:
+    active: dev
   cloud:
     nacos:
-      discovery:
-        server-addr: 192.168.0.102:8848
+      username: nacos
+      password: nacos
+      server-addr: 192.168.0.102:8848
       config:
-        server-addr: 192.168.0.102:8848
+        server-addr:
+        namespace: 5f164af6-f960-4c6a-8dc4-0f6e513dc358
+        # 配置文件分组，如果不写，默认值为 DEFAULT_GROUP
+        group: cloud-nacos
+        # 配置文件前缀，如果不写，默认为应用程序名称，即spring.application.name
+        prefix: api-server
+        # 配置文件后缀，如果不写，默认值为 properties，nacos 2.0以后支持的格式有很多，具体参考配置中心
+        file-extension: yaml
+        enabled: true
+        refresh-enabled: true
+        # enable-remote-sync-config: true
+        # 主配置 最大重试次数
+        max-retry: 3
+        # 主配置 重试时间
+        config-retry-time: 2000
+        # 共享配置, 可以把公共配置放在同个命名空间下，然后创建一个 common.yml 文件 ，里面可以放共用的配置
+        # shared-configs: common.yml
+      discovery:
+        enabled: true
+        register-enabled: true
+        namespace: 5f164af6-f960-4c6a-8dc4-0f6e513dc358
+        group: cloud-nacos
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
+
+

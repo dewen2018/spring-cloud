@@ -2,10 +2,7 @@ package com.dewen.controller;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author ：dewen
@@ -28,9 +25,8 @@ public class UserController {
      * @param userId
      * @return userName
      */
-    @GetMapping("getUserName")
-    public String getUserName(@RequestParam("userId") String userId) {
-        System.out.println(port);
+    @GetMapping("/getUserName/{userId}")
+    public String getUserName(@PathVariable String userId) {
         if (USER_NAME.equals(userId)) {
             return userName;
         } else {
