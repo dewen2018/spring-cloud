@@ -1,7 +1,12 @@
 server:
   port: 80
 
+
 spring:
+  servlet:
+    multipart:
+      max-file-size: 1024MB
+      max-request-size: 20MB
   application:
     name: api-gateway
   profiles:
@@ -39,10 +44,14 @@ spring:
 
     # 网关配置
     gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
       routes:
         # 路由的ID，没有固定规则但要求唯一，建议配置服务名称
         ## 一个请求地址一个转发
-        #        - id: api-server
+#        - id: api-server
         #          # 匹配后提供服务的路由地址
         #          uri: "http://127.0.0.1:7000"
         #          # 路由条件（predicates：断言，匹配 HTTP 请求内容）
@@ -62,8 +71,12 @@ spring:
           uri: lb://api-server
           predicates:
             - Path=/apiServer/*
-        ## 还没想好
-        - id: api-server4
+        - id: api-customer
+          uri: lb://api-customer
+          predicates:
+            - Path=/apiCustomer/*
+        ## 还没想好，暂时先请求网关本身
+        - id: api-serverxx
           uri: lb://api-gateway
           predicates:
             - Path=/**

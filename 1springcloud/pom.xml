@@ -22,8 +22,9 @@
     </properties>
 
     <modules>
-        <module>server</module>
         <module>gateway</module>
+        <!--dependency manage-->
+        <module>dpmanage/dp-web</module>
     </modules>
 
     <dependencyManagement>
