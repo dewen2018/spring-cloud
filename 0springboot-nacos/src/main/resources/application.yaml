@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: springboot-nacos
+
+nacos:
+  config:
+    # 开启nacos.config配置# 开启nacos.config配置
+    bootstrap:
+      enable: true
+    server-addr: 192.168.0.102:8848
+    namespace: 5f164af6-f960-4c6a-8dc4-0f6e513dc358
+    group: springboot-nacos
+    data-id: springboot-nacos-dev.yaml
+    type: yaml
+    # 主配置 开启自动刷新
+    auto-refresh: true
+    # 主配置 最大重试次数
+    max-retry: 3
+    ## 主配置 重试时间
+    config-retry-time: 2000
+
+
