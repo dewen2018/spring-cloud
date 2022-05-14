@@ -1,5 +1,5 @@
 server:
-  port: 8000
+  port: 7001
   servlet:
     context-path: /apiCustomer
 spring:
@@ -35,6 +35,16 @@ spring:
         register-enabled: true
         namespace: 5f164af6-f960-4c6a-8dc4-0f6e513dc358
         group: cloud-nacos
+
+    sentinel:
+      # 关闭之后就不用启主组件了
+      enabled: false
+      transport:
+        # sentinel控制台会像这个端口请求数据
+        port: 7501
+        # 配置sentinel dashboard地址
+        dashboard: localhost:81
+
 feign:
   client:
     config:

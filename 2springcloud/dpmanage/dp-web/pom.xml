@@ -19,6 +19,7 @@
     <modules>
         <module>../../server</module>
         <module>../../consumer</module>
+        <module>../dp-sentinel</module>
     </modules>
 
 

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>com.dewen</groupId>
+        <artifactId>dp-web</artifactId>
+        <version>${revision}</version>
+        <relativePath>../dp-web/pom.xml</relativePath>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.dewen</groupId>
+    <artifactId>dp-sentinel</artifactId>
+    <version>${revision}</version>
+    <packaging>pom</packaging>
+    <description>if you want user sentinel ,dependency extend this pom.xml</description>
+
+    <modules>
+        <module>../../server</module>
+        <module>../../consumer</module>
+    </modules>
+
+
+    <dependencies>
+        <!-- sentinel指定nacos为数据源 -->
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-datasource-nacos</artifactId>
+        </dependency>
+
+        <!-- 引用sentinel配置 -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+        </dependency>
+        <!-- 看官网集成没有添加，看有些人加了，我是开始出了一点问题：sentinel控制不出数据，所以加了，后来不是这问题，就注释了-->
+        <!--<dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-core</artifactId>
+            &lt;!&ndash;<version>1.7.1</version>&ndash;&gt;
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.nacos</groupId>
+            <artifactId>nacos-client</artifactId>
+            &lt;!&ndash;<version>2.0.1</version>&ndash;&gt;
+        </dependency>-->
+    </dependencies>
+
+
+</project>

@@ -4,9 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.dewen</groupId>
-        <artifactId>dp-web</artifactId>
         <version>${revision}</version>
+        <artifactId>dp-web</artifactId>
         <relativePath>../dpmanage/dp-web/pom.xml</relativePath>
+        <!--使用sentinel-->
+        <!--<artifactId>dp-sentinel</artifactId>
+        <relativePath>../dpmanage/dp-sentinel/pom.xml</relativePath>-->
     </parent>
     <groupId>com.dewen</groupId>
     <artifactId>server</artifactId>
@@ -16,6 +19,7 @@
 
 
     <dependencies>
+
 
     </dependencies>
 

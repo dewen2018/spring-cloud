@@ -4,9 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <groupId>com.dewen</groupId>
-        <artifactId>dp-web</artifactId>
         <version>${revision}</version>
+        <artifactId>dp-web</artifactId>
         <relativePath>../dpmanage/dp-web/pom.xml</relativePath>
+        <!--使用sentinel-->
+        <!--<artifactId>dp-sentinel</artifactId>
+        <relativePath>../dpmanage/dp-sentinel/pom.xml</relativePath>-->
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -15,6 +18,10 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>consumer</name>
     <description>test consumer</description>
+
+    <dependencies>
+
+    </dependencies>
 
 
 </project>

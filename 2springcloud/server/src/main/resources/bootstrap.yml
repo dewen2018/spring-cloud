@@ -34,10 +34,17 @@ spring:
         # 共享配置, 可以把公共配置放在同个命名空间下，然后创建一个 common.yml 文件 ，里面可以放共用的配置
         # shared-configs: common.yml
       discovery:
+        # 关闭之后就不用启主组件了
         enabled: true
         register-enabled: true
         namespace: 5f164af6-f960-4c6a-8dc4-0f6e513dc358
         group: cloud-nacos
 
-
-
+    sentinel:
+      # 关闭之后就不用启主组件了
+      enabled: false
+      transport:
+        # sentinel控制台会像这个端口请求数据，端口不能重复
+        port: 7500
+        # 配置sentinel dashboard地址
+        dashboard: localhost:81
