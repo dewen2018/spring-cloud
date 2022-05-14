@@ -23,8 +23,9 @@
 
     <modules>
         <module>gateway</module>
-        <!--dependency manage-->
-        <module>dpmanage/dp-web</module>
+        <module>server</module>
+        <module>consumer</module>
+        <module>seata-demo</module>
     </modules>
 
     <dependencyManagement>
@@ -111,6 +112,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.2.0.RELEASE</version>
             </plugin>
         </plugins>
     </build>

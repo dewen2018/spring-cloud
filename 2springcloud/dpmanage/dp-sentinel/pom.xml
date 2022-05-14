@@ -16,12 +16,6 @@
     <packaging>pom</packaging>
     <description>if you want user sentinel ,dependency extend this pom.xml</description>
 
-    <modules>
-        <module>../../server</module>
-        <module>../../consumer</module>
-    </modules>
-
-
     <dependencies>
         <!-- sentinel指定nacos为数据源 -->
         <dependency>

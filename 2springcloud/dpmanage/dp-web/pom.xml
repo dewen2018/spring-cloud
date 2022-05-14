@@ -16,13 +16,6 @@
     <packaging>pom</packaging>
     <description>gaway exists web confilt,so creat this pom reflove quest</description>
 
-    <modules>
-        <module>../../server</module>
-        <module>../../consumer</module>
-        <module>../dp-sentinel</module>
-    </modules>
-
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
