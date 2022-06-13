@@ -19,13 +19,23 @@
         <spring-boot.version>2.3.12.RELEASE</spring-boot.version>
         <spring.cloud.version>Hoxton.SR12</spring.cloud.version>
         <spring.cloud.alibaba.version>2.2.7.RELEASE</spring.cloud.alibaba.version>
+
+        <mybatis.plus.version>3.4.1</mybatis.plus.version>
+        <sharding-sphere.version>4.1.1</sharding-sphere.version>
+        <druid.version>1.1.24</druid.version>
     </properties>
 
     <modules>
-        <module>gateway</module>
-        <module>server</module>
-        <module>consumer</module>
-        <module>seata-demo</module>
+        <!--        <module>gateway</module>-->
+        <!--        <module>server</module>-->
+        <!--        <module>consumer</module>-->
+        <!--<module>seata-demo</module>
+        <module>seata-demo/common</module>
+        <module>seata-demo/provider</module>
+        <module>seata-demo/consumer</module>-->
+        <module>seata-shrding-jdbc</module>
+        <module>seata-shrding-jdbc/order-server</module>
+        <module>seata-shrding-jdbc/product-server</module>
     </modules>
 
     <dependencyManagement>

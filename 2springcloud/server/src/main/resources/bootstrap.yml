@@ -16,7 +16,6 @@ spring:
       password: nacos
       server-addr: 192.168.0.105:8848
       config:
-        server-addr:
         namespace: 5f164af6-f960-4c6a-8dc4-0f6e513dc358
         # 配置文件分组，如果不写，默认值为 DEFAULT_GROUP
         group: cloud-nacos
