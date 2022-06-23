@@ -13,7 +13,7 @@ public class ProductService {
     private ProductMapper productMapper;
 
     @Transactional
-    public void minusStock() {
-        productMapper.minusStock();
+    public void minusStock(Long productId, Integer count) {
+        productMapper.minusStock(productId, count);
     }
 }

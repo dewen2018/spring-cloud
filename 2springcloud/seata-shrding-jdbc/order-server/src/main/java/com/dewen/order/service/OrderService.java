@@ -1,25 +1,30 @@
 package com.dewen.order.service;
 
+import com.dewen.order.client.AccountClient;
 import com.dewen.order.client.ProductClient;
 import com.dewen.order.entity.Order;
 import com.dewen.order.mapper.OrderMapper;
 import io.seata.spring.annotation.GlobalTransactional;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+
+import javax.annotation.Resource;
 
 @Service
+@RequiredArgsConstructor
 public class OrderService {
 
     @Autowired
     private ProductClient productClient;
 
-    @Autowired
+    @Resource
     private OrderMapper orderMapper;
 
-    //这里切记不要加@GlobalTransactional
-    // @Transactional
-    @GlobalTransactional
+    @Resource
+    private AccountClient accountClient;
+
+    @GlobalTransactional(name = "demo-all", rollbackFor = Exception.class)
     public void seataDemo(Boolean hasError) {
         //下单操作
         Order order = new Order();
@@ -27,8 +32,11 @@ public class OrderService {
         order.setBuyNum(2);
         orderMapper.insert(order);
 
-        //减库存（这里参数什么的就自己脑补了）
-        productClient.minusStock();
+        // 减库存
+        productClient.minusStock(1L, 2);
+
+        // 减账户余额
+        accountClient.decrease(1L, 200);
 
         //异常模拟
         if (hasError) {

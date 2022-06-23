@@ -22,7 +22,8 @@
 
         <mybatis.plus.version>3.4.1</mybatis.plus.version>
         <sharding-sphere.version>4.1.1</sharding-sphere.version>
-        <druid.version>1.1.24</druid.version>
+        <!--<druid.version>1.1.24</druid.version>-->
+        <druid.version>1.2.1</druid.version>
     </properties>
 
     <modules>
@@ -36,6 +37,7 @@
         <module>seata-shrding-jdbc</module>
         <module>seata-shrding-jdbc/order-server</module>
         <module>seata-shrding-jdbc/product-server</module>
+        <module>seata-shrding-jdbc/account-server</module>
     </modules>
 
     <dependencyManagement>
@@ -123,6 +125,15 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>2.2.0.RELEASE</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
             </plugin>
         </plugins>
     </build>

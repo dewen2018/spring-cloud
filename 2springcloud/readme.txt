@@ -27,6 +27,7 @@ Seata Version
 3.集成sentinel的时候，bootstrap.ymlg格式写错了，导致控制台一直看不到数据
     另外因为有一定的延迟，所以要稍等几秒钟，另外第一次必须要先访问一下接口
 4.mavenclean需要搞一下
+    外层module引入即可
 
 端口定义：
     gateway网关：80
@@ -41,3 +42,12 @@ Seata Version
 依赖说明：
     1.如果使用sentinel，需要更改依赖：dp-sentinel，因为目前业务使用不到，不作为必须依赖
 
+
+
+此版本可用
+
+问题：
+   1.maven clean有警告
+    It is highly recommended to fix these problems because they threaten the stability of your build.
+   2.druid
+    discard long time none received connection. , jdbcUrl :
