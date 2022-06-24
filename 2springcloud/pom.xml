@@ -27,17 +27,24 @@
     </properties>
 
     <modules>
-        <!--        <module>gateway</module>-->
-        <!--        <module>server</module>-->
-        <!--        <module>consumer</module>-->
+        <!--<module>gateway</module>-->
+        <!--<module>server</module>-->
+        <!--<module>consumer</module>-->
+        <!--未实现-->
         <!--<module>seata-demo</module>
         <module>seata-demo/common</module>
         <module>seata-demo/provider</module>
         <module>seata-demo/consumer</module>-->
-        <module>seata-shrding-jdbc</module>
+        <!--事务at模式demo-->
+        <!--<module>seata-shrding-jdbc</module>
         <module>seata-shrding-jdbc/order-server</module>
         <module>seata-shrding-jdbc/product-server</module>
-        <module>seata-shrding-jdbc/account-server</module>
+        <module>seata-shrding-jdbc/account-server</module>-->
+        <!--事务tcc模式demo-->
+        <module>seata-tcc</module>
+        <module>seata-tcc/account-server</module>
+        <module>seata-tcc/order-server</module>
+        <module>seata-tcc/product-server</module>
     </modules>
 
     <dependencyManagement>

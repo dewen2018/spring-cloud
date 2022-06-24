@@ -51,3 +51,10 @@ Seata Version
     It is highly recommended to fix these problems because they threaten the stability of your build.
    2.druid
     discard long time none received connection. , jdbcUrl :
+    解决办法：System.setProperty("druid.mysql.usePingMethod", "false");
+
+参考：https://blog.csdn.net/weixin_34311210/article/details/122149076
+
+
+
+

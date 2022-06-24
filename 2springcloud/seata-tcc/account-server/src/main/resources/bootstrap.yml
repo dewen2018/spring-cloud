@@ -1,11 +1,11 @@
 server:
-  port: 7000
+  port: 7002
 #  servlet:
-#    context-path: /product-server
+#    context-path: /account-server
 
 spring:
   application:
-    name: product-server
+    name: account-server
   main:
     allow-bean-definition-overriding: true
 
@@ -26,7 +26,7 @@ spring:
         # 配置文件分组，如果不写，默认值为 DEFAULT_GROUP
         group: ${spring.cloud.nacos.group}
         # 配置文件前缀，如果不写，默认为应用程序名称，即spring.application.name
-        prefix: product-server
+        prefix: account-server
         # 配置文件后缀，如果不写，默认值为 properties，nacos 2.0以后支持的格式有很多，具体参考配置中心
         file-extension: yaml
         enabled: true
@@ -57,7 +57,7 @@ spring:
     alibaba:
       seata:
         # 再在seata config.txt 文件中
-        tx-service-group: demo-storage
+        tx-service-group: demo-account
 
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
@@ -110,12 +110,11 @@ seata:
   enabled: true
   application-id: ${spring.application.name}
   # 客户端和服务端在同一个事务组
-  tx-service-group: demo-storage
+  tx-service-group: demo-account
   enable-auto-data-source-proxy: true
   service:
-    # 事务分组名=集群名称
     vgroup-mapping:
-      demo-storage: default
+      demo-account: default
   #    grouplist:
   #      default: 127.0.0.1:8091
   #    enable-degrade: false
