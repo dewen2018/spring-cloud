@@ -3,3 +3,6 @@ seata-shrding-jdbc
 	
 seata-tcc
 	tcc模式
+
+seata-tcc
+	tcc模式加强版：悬挂，幂等，空回滚

@@ -13,6 +13,9 @@
         <revision>0.0.1-SNAPSHOT</revision>
 
         <java.version>1.8</java.version>
+        <!--指定java8编译-->
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
@@ -41,10 +44,9 @@
         <module>seata-shrding-jdbc/product-server</module>
         <module>seata-shrding-jdbc/account-server</module>-->
         <!--事务tcc模式demo-->
-        <module>seata-tcc</module>
-        <module>seata-tcc/account-server</module>
-        <module>seata-tcc/order-server</module>
-        <module>seata-tcc/product-server</module>
+        <!--<module>seata-tcc</module>-->
+        <!--事务tcc模式方悬挂，幂等，空回滚-->
+        <module>seata-tcc-v2</module>
     </modules>
 
     <dependencyManagement>
@@ -134,14 +136,15 @@
                 <version>2.2.0.RELEASE</version>
             </plugin>
 
-            <plugin>
+            <!--<plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.6.1</version>
                 <configuration>
                     <source>8</source>
                     <target>8</target>
                 </configuration>
-            </plugin>
+            </plugin>-->
         </plugins>
     </build>
 

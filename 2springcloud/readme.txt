@@ -53,8 +53,8 @@ Seata Version
     discard long time none received connection. , jdbcUrl :
     解决办法：System.setProperty("druid.mysql.usePingMethod", "false");
 
-参考：https://blog.csdn.net/weixin_34311210/article/details/122149076
 
-
+SkyWalking agent
+    -javaagent:D:\Programs\alibaba-group\seata1.5.1\ext\apm-skywalking\skywalking-agent.jar -Dskywalking.agent.service_name=product-application  -Dskywalking.collector.backend_service=127.0.0.1:11800
 
 
