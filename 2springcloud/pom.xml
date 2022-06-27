@@ -10,7 +10,7 @@
     <description>Demo project for Spring Cloud ALibaba</description>
 
     <properties>
-        <revision>0.0.1-SNAPSHOT</revision>
+        <revision>1.0.0</revision>
 
         <java.version>1.8</java.version>
         <!--指定java8编译-->
@@ -27,17 +27,14 @@
         <sharding-sphere.version>4.1.1</sharding-sphere.version>
         <!--<druid.version>1.1.24</druid.version>-->
         <druid.version>1.2.1</druid.version>
+        <!--dubbo-->
+        <dubbo.version>2.7.14</dubbo.version>
     </properties>
 
     <modules>
         <!--<module>gateway</module>-->
         <!--<module>server</module>-->
         <!--<module>consumer</module>-->
-        <!--未实现-->
-        <!--<module>seata-demo</module>
-        <module>seata-demo/common</module>
-        <module>seata-demo/provider</module>
-        <module>seata-demo/consumer</module>-->
         <!--事务at模式demo-->
         <!--<module>seata-shrding-jdbc</module>
         <module>seata-shrding-jdbc/order-server</module>
@@ -46,7 +43,9 @@
         <!--事务tcc模式demo-->
         <!--<module>seata-tcc</module>-->
         <!--事务tcc模式方悬挂，幂等，空回滚-->
-        <module>seata-tcc-v2</module>
+        <!--<module>seata-tcc-v2</module>-->
+        <!--未实现-->
+        <module>seata-dubbo-demo</module>
     </modules>
 
     <dependencyManagement>

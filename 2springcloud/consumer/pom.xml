@@ -15,7 +15,7 @@
 
     <groupId>com.dewen</groupId>
     <artifactId>consumer</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>consumer</name>
     <description>test consumer</description>
 

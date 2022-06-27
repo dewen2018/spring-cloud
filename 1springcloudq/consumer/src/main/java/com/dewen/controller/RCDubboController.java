@@ -1,12 +1,11 @@
 package com.dewen.controller;
 
 import com.dewen.service.HelloService;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.annotation.Resource;
 
 /**
  * @author ：dewen
@@ -16,7 +15,7 @@ import javax.annotation.Resource;
 @RequestMapping(path = "/rdd")
 public class RCDubboController {
 
-    @Resource
+    @DubboReference
     private HelloService helloService;
 
 
