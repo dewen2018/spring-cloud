@@ -2,6 +2,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
     <parent>
         <groupId>com.dewen</groupId>
         <artifactId>cloud</artifactId>
@@ -9,15 +12,13 @@
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.dewen</groupId>
+
     <artifactId>dp-web</artifactId>
-    <version>${revision}</version>
     <packaging>pom</packaging>
     <description>gaway exists web confilt,so creat this pom reflove quest</description>
 
     <modules>
-        <module>../../server</module>
+        <module>../../provider</module>
         <module>../../consumer</module>
         <module>../../common</module>
     </modules>
@@ -28,11 +29,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <!-- openfeign系统间调用 ,使用dubbo进行rpc调用-->
-        <!--<dependency>
+        <!-- openfeign系统间调用 ,使用dubbo进行rpc调用 ,spring-cloud-starter-dubbo中包含有feign，但还是要依赖此项 -->
+        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
-        </dependency>-->
+        </dependency>
         <!--引⼊dubbo依赖-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>

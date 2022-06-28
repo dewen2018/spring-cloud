@@ -6,5 +6,12 @@
 3.整合dubbo后启动报错
     https://github.com/alibaba/spring-cloud-alibaba/issues/2310
 
+本demo功能
+    支持dubuo，feign 两个远程调用，相对来说Dubbo较feign会节省时间
+    本人本地环境测试，大致相差1ms~
 
-支持dubuo，feign失败
+打包：
+1.通过revision控制版本
+2.打包只需要在父节点package
+3.maven必须要skipTests和execution repackage
+

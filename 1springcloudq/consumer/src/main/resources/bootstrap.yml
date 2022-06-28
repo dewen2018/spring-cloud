@@ -36,14 +36,15 @@ spring:
         register-enabled: true
         namespace: 5f164af6-f960-4c6a-8dc4-0f6e513dc358
         group: cloud-nacos
-#feign:
-#  client:
-#    config:
-#      default:
-#        loggerLevel: FULL
-#  httpclient:
-#    # 开启 httpclient
-#    enabled: true
+
+feign:
+  client:
+    config:
+      default:
+        loggerLevel: FULL
+  httpclient:
+    # 开启 httpclient
+    enabled: true
 
 dubbo:
   application:
@@ -57,13 +58,16 @@ dubbo:
     address: nacos://localhost:8848
     username: ${spring.cloud.nacos.username}
     password: ${spring.cloud.nacos.password}
+    check: false
   cloud:
     # 订阅的提供者名称
-    subscribed-services: api-server
+    subscribed-services: api-provider
   scan:
     # 配置需要扫描的注解包
     base-packages: com.dewen
   config-center:
     namespace: ${spring.cloud.nacos.namespace}
     username: ${spring.cloud.nacos.username}
+  consumer:
+    check: false
 

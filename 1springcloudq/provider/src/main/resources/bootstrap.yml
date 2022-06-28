@@ -5,7 +5,7 @@ server:
 
 spring:
   application:
-    name: api-server
+    name: api-provider
   profiles:
     active: dev
   cloud:
@@ -21,7 +21,7 @@ spring:
         # 配置文件分组，如果不写，默认值为 DEFAULT_GROUP
         group: cloud-nacos
         # 配置文件前缀，如果不写，默认为应用程序名称，即spring.application.name
-        prefix: api-server
+        prefix: api-provider
         # 配置文件后缀，如果不写，默认值为 properties，nacos 2.0以后支持的格式有很多，具体参考配置中心
         file-extension: yaml
         enabled: true
@@ -38,6 +38,14 @@ spring:
         register-enabled: true
         namespace: 5f164af6-f960-4c6a-8dc4-0f6e513dc358
         group: cloud-nacos
+#feign:
+#  client:
+#    config:
+#      default:
+#        loggerLevel: FULL
+#  httpclient:
+#    # 开启 httpclient
+#    enabled: true
 
 dubbo:
   application:
@@ -50,12 +58,15 @@ dubbo:
     address: nacos://localhost:8848
     username: ${spring.cloud.nacos.username}
     password: ${spring.cloud.nacos.password}
+    check: false
   cloud:
     # 订阅的提供者名称
-    subscribed-services: api-server
+    subscribed-services: api-provider
   scan:
     base-packages: com.dewen.dubboservice
   config-center:
     namespace: ${spring.cloud.nacos.namespace}
     username: ${spring.cloud.nacos.username}
+  consumer:
+    check: false
 
