@@ -9,14 +9,19 @@
         <relativePath>../dpmanage/dp-web/pom.xml</relativePath>
     </parent>
 
-    <artifactId>server</artifactId>
-    <name>server</name>
+    <artifactId>provider</artifactId>
+    <name>provider</name>
     <description>Demo project for Spring Cloud Server</description>
 
 
     <dependencies>
-
+        <dependency>
+            <groupId>com.dewen</groupId>
+            <artifactId>common</artifactId>
+            <version>${revision}</version>
+        </dependency>
     </dependencies>
+
 
     <build>
         <plugins>

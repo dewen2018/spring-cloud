@@ -1,5 +1,7 @@
 package com.dewen.controller;
 
+import com.dewen.dubboservice.HelloServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +20,9 @@ public class UserController {
     private String userName;
     @Value("${server.port}")
     private String port;
+
+    @Autowired
+    private HelloServiceImpl helloService;
 
     /**
      * 获取用户名
@@ -46,5 +51,11 @@ public class UserController {
         } else {
             return "24";
         }
+    }
+
+
+    @GetMapping("/hello/{name}")
+    public String hello(@PathVariable String name) {
+        return helloService.hello(name);
     }
 }

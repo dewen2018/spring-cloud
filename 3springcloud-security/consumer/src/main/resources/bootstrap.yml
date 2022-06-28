@@ -11,7 +11,8 @@ spring:
     nacos:
       username: nacos
       password: nacos
-      server-addr: 192.168.0.105:8848
+      server-addr: 127.0.0.1:8848
+      namespace: 5f164af6-f960-4c6a-8dc4-0f6e513dc358
       config:
         server-addr:
         namespace: 5f164af6-f960-4c6a-8dc4-0f6e513dc358
@@ -35,6 +36,7 @@ spring:
         register-enabled: true
         namespace: 5f164af6-f960-4c6a-8dc4-0f6e513dc358
         group: cloud-nacos
+
 feign:
   client:
     config:
@@ -44,4 +46,28 @@ feign:
     # 开启 httpclient
     enabled: true
 
+dubbo:
+  application:
+    name: ${spring.application.name}
+  protocol:
+    # 这个dubbo的协议端口在一台服务器上的时候，每个项目的必须配置成不一样的（否则将启动失败），或者配置为-1，使用随机端口
+    port: -1
+    name: dubbo
+  registry:
+    id: ${spring.application.name}
+    address: nacos://localhost:8848
+    username: ${spring.cloud.nacos.username}
+    password: ${spring.cloud.nacos.password}
+    check: false
+  cloud:
+    # 订阅的提供者名称
+    subscribed-services: api-provider
+  scan:
+    # 配置需要扫描的注解包
+    base-packages: com.dewen
+  config-center:
+    namespace: ${spring.cloud.nacos.namespace}
+    username: ${spring.cloud.nacos.username}
+  consumer:
+    check: false
 

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
  * @date 2022/5/13 17:11:24
  */
 
-@FeignClient(value = "api-server")
+@FeignClient(value = "api-provider")
 public interface RCOpenfeignClient {
 
     @GetMapping("/apiServer/user/getUserName/{userId}")
