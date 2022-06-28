@@ -1,0 +1,141 @@
+server:
+  port: 7003
+#  servlet:
+#    context-path: /product-server
+
+spring:
+  application:
+    name: product-server
+  main:
+    allow-bean-definition-overriding: true
+
+  profiles:
+    active: dev
+
+  cloud:
+    inetutils:
+      ignored-interfaces: 'VMware Virtual Ethernet Adapter for VMnet1,VMware Virtual Ethernet Adapter for VMnet8,Hyper-V Virtual Ethernet Adapter'
+    nacos:
+      username: nacos
+      password: nacos
+      server-addr: 127.0.0.1:8848
+      namespace: 5f164af6-f960-4c6a-8dc4-0f6e513dc358
+      group: cloud-nacos
+      config:
+        namespace: ${spring.cloud.nacos.namespace}
+        # 配置文件分组，如果不写，默认值为 DEFAULT_GROUP
+        group: ${spring.cloud.nacos.group}
+        # 配置文件前缀，如果不写，默认为应用程序名称，即spring.application.name
+        prefix: product-server
+        # 配置文件后缀，如果不写，默认值为 properties，nacos 2.0以后支持的格式有很多，具体参考配置中心
+        file-extension: yaml
+        enabled: true
+        refresh-enabled: true
+        # enable-remote-sync-config: true
+        # 主配置 最大重试次数
+        max-retry: 3
+        # 主配置 重试时间
+        config-retry-time: 2000
+        # 共享配置, 可以把公共配置放在同个命名空间下，然后创建一个 common.yml 文件 ，里面可以放共用的配置
+        # shared-configs: common.yml
+      discovery:
+        # 关闭之后就不用启主组件了
+        enabled: true
+        register-enabled: true
+        namespace: ${spring.cloud.nacos.namespace}
+        group: ${spring.cloud.nacos.group}
+
+    sentinel:
+      # 关闭之后就不用启主组件了
+      enabled: false
+      transport:
+        # sentinel控制台会像这个端口请求数据，端口不能重复
+        port: 7500
+        # 配置sentinel dashboard地址
+        dashboard: localhost:81
+
+    alibaba:
+      seata:
+        # 再在seata config.txt 文件中
+        tx-service-group: demo-storage
+
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3307/seata_product?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai&autoReconnect=true
+    username: root
+    password: root
+    max-wait: 60000
+    max-active: 100
+    min-idle: 10
+    initial-size: 10
+#  redis:
+#    host: 127.0.0.1
+#    port: 6379
+#    database: 0
+#    password: 123456
+
+# mybatis-plus
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  # typeAliasesPackage: com.dewen.entity
+  global-config:
+    db-config:
+      field-strategy: not-empty
+      id-type: auto
+      db-type: mysql
+    banner: true
+  configuration:
+    # 驼峰下划线转换
+    map-underscore-to-camel-case: true
+    cache-enabled: true
+    auto-mapping-unknown-column-behavior: none
+    # 这个配置会将执行的sql打印出来
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+feign:
+  client:
+    config:
+      default:
+        loggerLevel: FULL
+  httpclient:
+    # 开启 httpclient
+    enabled: true
+#  okhttp:
+#    enabled: false
+
+# seata 分布式事务配置
+seata:
+  enabled: true
+  application-id: ${spring.application.name}
+  # 客户端和服务端在同一个事务组
+  tx-service-group: demo-storage
+  enable-auto-data-source-proxy: true
+  service:
+    # 事务分组名=集群名称
+    vgroup-mapping:
+      demo-storage: default
+  #    grouplist:
+  #      default: 127.0.0.1:8091
+  #    enable-degrade: false
+  #    disable-global-transaction: false
+  config:
+    type: nacos
+    nacos:
+      server-addr: ${spring.cloud.nacos.server-addr}
+      group: ${spring.cloud.nacos.group}
+      namespace: ${spring.cloud.nacos.namespace}
+      username: ${spring.cloud.nacos.username}
+      password: ${spring.cloud.nacos.password}
+      cluster: default
+  registry:
+    type: nacos
+    nacos:
+      application: seata-server
+      server-addr: ${spring.cloud.nacos.server-addr}
+      group: ${spring.cloud.nacos.group}
+      namespace: ${spring.cloud.nacos.namespace}
+      username: ${spring.cloud.nacos.username}
+      password: ${spring.cloud.nacos.password}
+      cluster: default

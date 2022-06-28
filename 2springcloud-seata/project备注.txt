@@ -1,0 +1,8 @@
+1.seata-shrding-jdbc
+	at模式
+	
+2.seata-tcc
+	tcc模式
+
+3.seata-tcc
+	tcc模式升级版：悬挂，幂等，空回滚
