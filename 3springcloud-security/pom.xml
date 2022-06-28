@@ -28,6 +28,7 @@
     <modules>
         <!--dependency manage-->
         <module>dpmanage/dp-web</module>
+        <module>gateway</module>
     </modules>
 
     <dependencyManagement>
