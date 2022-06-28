@@ -11,12 +11,9 @@
         <!--<artifactId>dp-sentinel</artifactId>
         <relativePath>../dpmanage/dp-sentinel/pom.xml</relativePath>-->
     </parent>
-    <groupId>com.dewen</groupId>
     <artifactId>server</artifactId>
-    <version>1.0.0</version>
     <name>server</name>
     <description>Demo project for Spring Cloud Server</description>
-
 
     <dependencies>
 

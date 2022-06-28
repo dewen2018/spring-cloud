@@ -10,9 +10,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.dewen</groupId>
     <artifactId>seata-dubbo-demo</artifactId>
-    <version>1.0.0</version>
     <name>seata-dubbo-demo</name>
     <packaging>pom</packaging>
     <description>Demo project for seata-dubbo-demo parent</description>

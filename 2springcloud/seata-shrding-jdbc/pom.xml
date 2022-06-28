@@ -10,12 +10,16 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.dewen</groupId>
     <artifactId>seata-shrding-jdbc</artifactId>
-    <version>${revision}</version>
     <name>seata-shrding-jdbc</name>
     <packaging>pom</packaging>
     <description>Demo project for seata parent</description>
+
+    <modules>
+        <module>order-server</module>
+        <module>product-server</module>
+        <module>account-server</module>
+    </modules>
 
     <dependencies>
         <!--mysql驱动 -->

@@ -10,9 +10,7 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.dewen</groupId>
     <artifactId>dp-sentinel</artifactId>
-    <version>${revision}</version>
     <packaging>pom</packaging>
     <description>if you want user sentinel ,dependency extend this pom.xml</description>
 

@@ -9,9 +9,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <groupId>com.dewen</groupId>
     <artifactId>gateway</artifactId>
-    <version>1.0.0</version>
     <name>gateway</name>
     <description>Demo project for Spring Cloud Gateway</description>
 

@@ -13,9 +13,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.dewen</groupId>
     <artifactId>consumer</artifactId>
-    <version>1.0.0</version>
     <name>consumer</name>
     <description>test consumer</description>
 

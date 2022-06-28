@@ -10,12 +10,15 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.dewen</groupId>
     <artifactId>dp-web</artifactId>
-    <version>${revision}</version>
     <packaging>pom</packaging>
     <description>gaway exists web confilt,so creat this pom reflove quest</description>
 
+    <modules>
+<!--        <module>../../gateway</module>-->
+<!--        <module>../../server</module>-->
+<!--        <module>../../consumer</module>-->
+    </modules>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>

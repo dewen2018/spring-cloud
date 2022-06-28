@@ -8,11 +8,9 @@
         <artifactId>dp-web</artifactId>
         <relativePath>../dpmanage/dp-web/pom.xml</relativePath>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.dewen</groupId>
+    <modelVersion>4.0.0</modelVersion>
     <artifactId>seata-tcc</artifactId>
-    <version>${revision}</version>
     <name>seata-tcc</name>
     <packaging>pom</packaging>
     <description>Demo project for seata,tcc ...</description>

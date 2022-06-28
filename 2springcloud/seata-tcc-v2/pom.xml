@@ -10,9 +10,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.dewen</groupId>
     <artifactId>seata-tcc-v2</artifactId>
-    <version>${revision}</version>
     <name>seata-tcc-v2</name>
     <packaging>pom</packaging>
     <description>Demo project for seata,tcc ...</description>
