@@ -16,7 +16,7 @@ spring:
     nacos:
       username: nacos
       password: nacos
-      server-addr: 192.168.0.105:8848
+      server-addr: 127.0.0.1:8848
       config:
         server-addr:
         namespace: 5f164af6-f960-4c6a-8dc4-0f6e513dc358
@@ -42,63 +42,44 @@ spring:
         group: cloud-nacos
 
     sentinel:
+      # 关闭之后就不用启主组件了
+      enabled: false
       transport:
-        dashboard: 127.0.0.1:8011
+        # sentinel控制台会像这个端口请求数据
+        port: 7501
+        # 配置sentinel dashboard地址
+        dashboard: 127.0.0.1:81
+
     # 网关配置
     gateway:
       discovery:
         locator:
           # 让gateway可以发现nacos中的其他微服务, 进行路由转发
           enabled: true
-      #          lower-case-service-id: true
+          lower-case-service-id: false
       routes:
         # 路由的ID，没有固定规则但要求唯一，建议配置服务名称
-        ## 一个请求地址一个转发
-        #        - id: api-server
-        #          # 匹配后提供服务的路由地址
-        #          uri: "http://127.0.0.1:7000"
-        #          # 路由条件（predicates：断言，匹配 HTTP 请求内容）
-        #          predicates:
-        #            # 转发地址格式为 uri/getUserName
-        #            - Path=/apiServer/user/getUserName
-        ## 断言，路径相匹配的进行路由：/apiServer/*
-        #        - id: api-server2
-        #          # 匹配后提供服务的路由地址
-        #          uri: "http://127.0.0.1:7000"
-        #          # 路由条件（predicates：断言，匹配 HTTP 请求内容）
-        #          predicates:
-        #            # 转发地址格式为 uri/getUserName
-        #            - Path=/apiServer/*
-        #        - id: route01
-        #          uri: http://localhost:8081/
-        #          predicates: ###匹配规则
-        #            - Path=/nacos/provider/echo/**
-        #          filters:
-        #            - StripPrefix=1 #转发之前去掉path中第一层路径，例如nacos
-        ## uri使用lb://
-        - id: api-server
-          uri: lb://api-server
+        # StripPrefix=1 #转发之前去掉path中第一层路径，例如nacos
+        # uri使用lb://
+        - id: api-provider
+          uri: lb://api-provider
           predicates:
             - Path=/apiServer/**
         - id: api-customer
           uri: lb://api-customer
           predicates:
             - Path=/apiCustomer/**
+        - id: api-uac
+          uri: lb://api-uac
+          predicates:
+            - Path=/apiUac/**
+          # filters:
+          #   - RewritePath=/apiUac/(?<segment>.*),/$\{segment}
         ## 还没想好，暂时先请求网关本身
         - id: api-serverxx
           uri: lb://api-gateway
           predicates:
             - Path=/**
-
-    #      globalcors:
-    #        corsConfigurations:
-    #          '[/**]':
-    #            allowedOrigins: "https://127.0.0.1"
-    #            allowedMethods:
-    #              - GET
-    #            allowHeaders:
-    #              - Content-Type
-
 
 #management:
 #  endpoints:

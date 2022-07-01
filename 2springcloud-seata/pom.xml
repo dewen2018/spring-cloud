@@ -39,7 +39,7 @@
         <!--事务tcc模式demo-->
         <!--<module>seata-tcc</module>-->
         <!--事务tcc模式方悬挂，幂等，空回滚-->
-        <!--<module>seata-tcc-v2</module>-->
+        <module>seata-tcc-v2</module>
         <!--未实现-->
         <!--<module>seata-dubbo-demo</module>-->
     </modules>

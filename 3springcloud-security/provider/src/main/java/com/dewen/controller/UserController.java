@@ -4,6 +4,7 @@ import com.dewen.dubboservice.HelloServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -30,6 +31,7 @@ public class UserController {
      * @param userId
      * @return userName
      */
+    @PreAuthorize("hasAnyAuthority('admin')")
     @GetMapping("/getUserName/{userId}")
     public String getUserName(@PathVariable String userId) {
         if (USER_NAME.equals(userId)) {

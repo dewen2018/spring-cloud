@@ -9,8 +9,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  * @author ：dewen
  */
 @EnableFeignClients
-@SpringBootApplication
 @EnableDubbo
+@SpringBootApplication
 public class ConsumerApplication {
 
     public static void main(String[] args) {

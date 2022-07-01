@@ -21,6 +21,7 @@
         <module>../../provider</module>
         <module>../../consumer</module>
         <module>../../common</module>
+        <module>../../uac</module>
     </modules>
 
 
@@ -43,6 +44,24 @@
             <groupId>com.alibaba.spring</groupId>
             <artifactId>spring-context-support</artifactId>
             <version>1.0.11</version>
+        </dependency>
+
+
+        <!--mysql驱动 -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>${mybatis.plus.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>${druid.version}</version>
         </dependency>
     </dependencies>
 

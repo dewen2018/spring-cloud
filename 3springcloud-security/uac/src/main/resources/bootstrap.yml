@@ -1,11 +1,11 @@
 server:
-  port: 7000
+  port: 7001
   servlet:
-    context-path: /apiServer
+    context-path: /apiUac
 
 spring:
   application:
-    name: api-provider
+    name: api-uac
   profiles:
     active: dev
   cloud:
@@ -21,7 +21,7 @@ spring:
         # 配置文件分组，如果不写，默认值为 DEFAULT_GROUP
         group: cloud-nacos
         # 配置文件前缀，如果不写，默认为应用程序名称，即spring.application.name
-        prefix: api-provider
+        prefix: api-uac
         # 配置文件后缀，如果不写，默认值为 properties，nacos 2.0以后支持的格式有很多，具体参考配置中心
         file-extension: yaml
         enabled: true
@@ -54,7 +54,7 @@ spring:
 mybatis-plus:
   mapper-locations: classpath:mapper/*.xml
   # entity
-  type-aliases-package: com.dewen.uac.entity,com.dewen.entity
+  type-aliases-package: com.dewen.uac.entity
   global-config:
     db-config:
       field-strategy: not-empty
@@ -76,6 +76,7 @@ feign:
     # 开启 httpclient
     enabled: true
 
+
 dubbo:
   application:
     name: ${spring.application.name}
@@ -90,9 +91,9 @@ dubbo:
     check: false
   cloud:
     # 订阅的提供者名称
-    subscribed-services: api-provider
+    subscribed-services: api-uac
   scan:
-    base-packages: com.dewen.dubboservice
+    base-packages: com.dewen
   config-center:
     namespace: ${spring.cloud.nacos.namespace}
     username: ${spring.cloud.nacos.username}

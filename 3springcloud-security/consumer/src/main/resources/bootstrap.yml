@@ -55,7 +55,7 @@ dubbo:
     name: dubbo
   registry:
     id: ${spring.application.name}
-    address: nacos://localhost:8848
+    address: nacos://127.0.0.1:8848
     username: ${spring.cloud.nacos.username}
     password: ${spring.cloud.nacos.password}
     check: false
