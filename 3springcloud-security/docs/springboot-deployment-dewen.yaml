@@ -1,0 +1,31 @@
+# kubectl api-versions 可以通过这条指令去看版本信息
+apiVersion: apps/v1
+# 指定资源类别
+kind: Deployment
+#资源的一些元数据
+metadata:
+  #deloyment的名称
+  name: springboot-deployment-dewen
+  labels:
+    #标签
+    app: springboot-deployment-dewen
+
+# 让spec.selector.matchLabels值和spec.template.metadata.lables值完全匹配
+spec:
+  #创建pod的个数
+  replicas: 2
+  selector:
+    matchLabels:
+      #满足标签为这个的时候相关的pod才能被调度到
+      app: springboot-dewen-v1
+  template:
+    metadata:
+      labels:
+        app: springboot-dewen-v1
+    spec:
+      containers:
+        - name: springboot-dewen
+          image: registry.cn-hangzhou.aliyuncs.com/dewen20220701/wn-20220701:1.0.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
